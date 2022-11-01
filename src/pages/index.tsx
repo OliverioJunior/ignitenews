@@ -1,5 +1,6 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
+import stripe from 'stripe';
 import styles from '../../styles/Home.module.scss';
 import { SubscribeButton } from '../components/SubscribeButton';
 
@@ -29,3 +30,14 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const price = await stripe.prices.retrieve('price_1Lz6M0HOKwH0vkwQvoxyYZJ1', {
+    expand: ['product'],
+  });
+  return {
+    props: {
+      name: 'oliverios',
+    },
+  };
+};
