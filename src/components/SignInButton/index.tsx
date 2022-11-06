@@ -4,8 +4,6 @@ import { FiX } from 'react-icons/fi';
 import { signIn, signOut, useSession } from 'next-auth/react';
 export const SingInButton: React.FC = () => {
   const { status, data } = useSession();
-  const all = useSession();
-  console.log(all);
   return status === 'authenticated' ? (
     <button
       type="button"
