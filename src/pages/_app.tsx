@@ -9,7 +9,7 @@ export default function App({
   return (
     <NextAuthProvider session={session}>
       <Header />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </NextAuthProvider>
   );
 }

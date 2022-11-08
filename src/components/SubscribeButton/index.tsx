@@ -11,19 +11,26 @@ interface SubscribeButtonProps {
 export const SubscribeButton: React.FC<SubscribeButtonProps> = () => {
   const { status } = useSession();
   async function handleSubscribe() {
-    if (status === 'unauthenticated') signIn('github');
+    if (status === 'unauthenticated') {
+      return signIn('github');
+    }
     try {
       const response = await api.post('/subscribe');
-      const { sessionId } = response.data;
+      console.log(response.data);
+      const sessionId = response.data;
       const stripe = await getStripeJs();
       await stripe?.redirectToCheckout(sessionId);
     } catch (err) {
-      alert(err);
+      console.log(err + 'aqui');
     }
   }
 
   return (
-    <button type="button" className={styles.subscribeButton}>
+    <button
+      type="button"
+      className={styles.subscribeButton}
+      onClick={() => handleSubscribe()}
+    >
       Subscribe now
     </button>
   );
