@@ -16,12 +16,11 @@ export const SubscribeButton: React.FC<SubscribeButtonProps> = () => {
     }
     try {
       const response = await api.post('/subscribe');
-      console.log(response.data);
       const sessionId = response.data;
       const stripe = await getStripeJs();
       await stripe?.redirectToCheckout(sessionId);
     } catch (err) {
-      console.log(err + 'aqui');
+      console.log(err + 'buttonSubscribe');
     }
   }
 
