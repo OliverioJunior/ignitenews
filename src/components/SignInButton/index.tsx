@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { FaGithub } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 import { FiX } from 'react-icons/fi';
 import { signIn, signOut, useSession } from 'next-auth/react';
 export const SingInButton: React.FC = () => {
@@ -12,7 +12,7 @@ export const SingInButton: React.FC = () => {
         signOut();
       }}
     >
-      <FaGithub color="#04d361" />
+      <HiOutlineMail color="#124E3B" />
       {data.user?.name}
       <FiX color="#737380" className={styles.closeIcon} />
     </button>
@@ -22,8 +22,8 @@ export const SingInButton: React.FC = () => {
       className={styles.singInButton}
       onClick={() => signIn('github')}
     >
-      <FaGithub color="#eba417" />
-      Sing in with GitHub
+      <HiOutlineMail color="#7EB9A4" />
+      Sing in with Gmail
     </button>
   );
 };

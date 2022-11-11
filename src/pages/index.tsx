@@ -21,18 +21,18 @@ export default function Home({ product }: HomeProps) {
       </Head>
       <main className={styles.container}>
         <section className={styles.hero}>
-          <span>👏 Hey, welcome</span>
+          {/*  <span>👏 Hey, welcome</span> */}
           <h1>
-            News about <br /> the <span> React</span> world.
+            Agende sua <br /> <span> Consulta</span>.
           </h1>
           <p>
             Get access to all the publications <br />
-            <span>for {product.amount} month</span>
+            <span>por {`R$ 110.00`} consulta</span>
           </p>
 
           <SubscribeButton priceId={product.priceId} />
         </section>
-        <img src="/images/avatar.svg" alt="Girl coding" />
+        <img src="/images/phane.svg" alt="Girl coding" />
       </main>
     </>
   );

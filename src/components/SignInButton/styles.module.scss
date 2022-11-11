@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--white);
+  color: var(--gray-50);
   font-weight: bold;
 
   svg {
@@ -30,6 +30,7 @@
   &:hover {
     filter: brightness(0.8);
   }
+
 }
 
 

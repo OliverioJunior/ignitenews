@@ -7,6 +7,8 @@
   --gray-850: #1f2729;
   --gray-900: #121214;
 
+  --green-600: #124E3B;
+
   --cyan-500: #61dafb;
   --yellow-500: #eba417;
 }
@@ -44,12 +46,3 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}

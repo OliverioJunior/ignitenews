@@ -1,6 +1,6 @@
 .headerContainer{
   height: 5rem;
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--green-600);
 }
 
 .headerContent{
@@ -12,6 +12,17 @@
   display: flex;
   align-items: center;
 
+  h1 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-50);
+    }
+  }
   nav {
     margin-left: 5rem;
     height: 5rem;
@@ -36,17 +47,6 @@
       &.active {
         color: var(--white);
         font-weight: bold;
-      }
-      &.active::after{
-        content: "";
-        height: 3px;
-        border-radius: 3px 3px 0 0;
-        width: 100%;
-        position: absolute;
-        bottom: 1px;
-        left: 0;
-        background: var(--yellow-500);
-
       }
     }
   }
