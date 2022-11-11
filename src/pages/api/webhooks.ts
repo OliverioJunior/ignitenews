@@ -17,7 +17,11 @@ export const config = {
   },
 };
 
-const relevantEvents = new Set(['checkout.session.completed']);
+const relevantEvents = new Set([
+  'checkout.session.completed',
+  'customer.subscriptions.updated',
+  'customer.subscriptions.deleted',
+]);
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST')
     return (
@@ -43,6 +47,17 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (relevantEvents.has(type)) {
     try {
       switch (type) {
+        case 'customer.subscriptions.updated':
+        case 'customer.subscriptions.deleted':
+          // eslint-disable-next-line no-case-declarations
+          const subscription = event.data.object as Stripe.Subscription;
+
+          await saveSubscription(
+            subscription.id,
+            subscription.customer.toString(),
+            false,
+          );
+          break;
         case 'checkout.session.completed':
           // eslint-disable-next-line no-case-declarations
           const checkoutSession = event.data.object as Stripe.Checkout.Session;
@@ -50,6 +65,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           await saveSubscription(
             checkoutSession.subscription?.toString() as string,
             checkoutSession.customer?.toString() as string,
+            true,
           );
 
           break;
