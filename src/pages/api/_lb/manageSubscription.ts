@@ -38,6 +38,7 @@ export async function saveSubscription(
           { data: subscriptionData },
         ),
       );
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.log(err.message);
     }
