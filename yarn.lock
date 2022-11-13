@@ -1136,7 +1136,7 @@
     "@prismicio/types-internal" "0.2.10"
     "tslib" "^2.3.1"
 
-"@prismicio/client@^6.6":
+"@prismicio/client@^6", "@prismicio/client@^6.0.0", "@prismicio/client@^6.6", "@prismicio/client@^6.7.1":
   "integrity" "sha512-XIFSZtLjxnpQavu2R7jIqmnFvUqRRzHwjXHt/fb0N550rFLQM4tnwDuSR3VY6k/TG+M5zvH+PHJuXGNnv73qUQ=="
   "resolved" "https://registry.npmjs.org/@prismicio/client/-/client-6.7.1.tgz"
   "version" "6.7.1"
@@ -1149,7 +1149,7 @@
   "resolved" "https://registry.npmjs.org/@prismicio/custom-types-client/-/custom-types-client-0.0.7.tgz"
   "version" "0.0.7"
 
-"@prismicio/helpers@^2.3.3":
+"@prismicio/helpers@^2.3.1", "@prismicio/helpers@^2.3.3", "@prismicio/helpers@^2.3.5":
   "integrity" "sha512-lL9TQG+GKtOATvLOlTFoaDfEZOgrNXHRuD+TxCSwLPKRBtYVs6zBoU6SkkcISm/DCe8PwGD0zo44zDdPtFJuBA=="
   "resolved" "https://registry.npmjs.org/@prismicio/helpers/-/helpers-2.3.5.tgz"
   "version" "2.3.5"
@@ -1174,12 +1174,53 @@
     "newtype-ts" "^0.3.5"
     "tslib" "^2.3.1"
 
-"@prismicio/richtext@^2.1.1":
+"@prismicio/next@^0.1.8":
+  "integrity" "sha512-smm2DH9I8MOTOy7p0G7o6cQA3XlNXy0sBpA83xdPLYI4FyLQm81tAEup8cFGQNhA+PPKAv7vuGVcoV34xww1yQ=="
+  "resolved" "https://registry.npmjs.org/@prismicio/next/-/next-0.1.8.tgz"
+  "version" "0.1.8"
+  dependencies:
+    "@prismicio/helpers" "^2.3.5"
+    "@prismicio/types" "^0.2.3"
+    "imgix-url-builder" "^0.0.3"
+
+"@prismicio/react@^2.5.0":
+  "integrity" "sha512-1EYdvoU2bpVEkmVDDVyTUK22C580tTWR96HJ9PMUex0oGeJLBAMKiRinyachN42r1uCH5nRAH54A90ZtBjjZhw=="
+  "resolved" "https://registry.npmjs.org/@prismicio/react/-/react-2.5.0.tgz"
+  "version" "2.5.0"
+  dependencies:
+    "@prismicio/helpers" "^2.3.1"
+    "@prismicio/richtext" "^2.0.1"
+
+"@prismicio/richtext@^2.0.1", "@prismicio/richtext@^2.1.1":
   "integrity" "sha512-/99JR2NUU2WV0025eAIqjd9OnF4ITaM57SVuhLc1XBUgnJe0HZrC9f24YKVW43jFR5HYTJtLgz01WjEddymqmA=="
   "resolved" "https://registry.npmjs.org/@prismicio/richtext/-/richtext-2.1.1.tgz"
   "version" "2.1.1"
   dependencies:
     "@prismicio/types" "^0.2.0"
+
+"@prismicio/slice-simulator-com@^0.4.0":
+  "integrity" "sha512-W0X68OW6AWJ0XmnvpgDfQ8eV+cLVeSGCmCyWnoVAcPfPLCcXNtRiGVw7WHvobo/ApWBsSIJPey5ZS+7x4H242Q=="
+  "resolved" "https://registry.npmjs.org/@prismicio/slice-simulator-com/-/slice-simulator-com-0.4.0.tgz"
+  "version" "0.4.0"
+  dependencies:
+    "statuses" "^2.0.1"
+
+"@prismicio/slice-simulator-core@^0.2.1":
+  "integrity" "sha512-Stq+e0PtLtaH5HctjPPLdFhAWpwIrSGmEJUFLH2Ur0le4Uyvzjt+KmDv7wuiOqjVa33N4/9JIRC5soezIRKWJA=="
+  "resolved" "https://registry.npmjs.org/@prismicio/slice-simulator-core/-/slice-simulator-core-0.2.6.tgz"
+  "version" "0.2.6"
+  dependencies:
+    "@prismicio/slice-simulator-com" "^0.4.0"
+    "@prismicio/types" "^0.2.0"
+    "fp-ts" "^2.12.1"
+    "io-ts" "^2.2.16"
+
+"@prismicio/slice-simulator-react@^0.2.2":
+  "integrity" "sha512-GfAP4nR01OhsahrNOhc58L0sVDcieU5AWEuuiRN55txQjKgaAl5GVtn0V6Pz4albnY4KKvLlQIffcgy2W+L9TQ=="
+  "resolved" "https://registry.npmjs.org/@prismicio/slice-simulator-react/-/slice-simulator-react-0.2.2.tgz"
+  "version" "0.2.2"
+  dependencies:
+    "@prismicio/slice-simulator-core" "^0.2.1"
 
 "@prismicio/types-internal@^0.2.10":
   "integrity" "sha512-rSptcPTHqPNPYA6Sq6AZkMq7WejN3jbzCIsLCf/JWI+UxcqkD+nRkos7rtDVYx6JKE5sv9lyfLan6KcJpxRRJQ=="
@@ -3468,7 +3509,7 @@
   "resolved" "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz"
   "version" "0.2.0"
 
-"fp-ts@^2.0.0", "fp-ts@^2.10.5", "fp-ts@^2.11.5", "fp-ts@^2.11.8", "fp-ts@^2.5.0":
+"fp-ts@^2.0.0", "fp-ts@^2.10.5", "fp-ts@^2.11.5", "fp-ts@^2.11.8", "fp-ts@^2.12.1", "fp-ts@^2.5.0":
   "integrity" "sha512-0eu5ULPS2c/jsa1lGFneEFFEdTbembJv8e4QKXeVJ3lm/5hyve06dlKZrpxmMwJt6rYen7sxmHHK2CLaXvWuWQ=="
   "resolved" "https://registry.npmjs.org/fp-ts/-/fp-ts-2.13.1.tgz"
   "version" "2.13.1"
@@ -4931,7 +4972,7 @@
     "preact-render-to-string" "^5.1.19"
     "uuid" "^8.3.2"
 
-"next@^12.2.5 || ^13", "next@13.0.0":
+"next@^11 || ^12", "next@^12.2.5 || ^13", "next@13.0.0":
   "integrity" "sha512-puH1WGM6rGeFOoFdXXYfUxN9Sgi4LMytCV5HkQJvVUOhHfC1DoVqOfvzaEteyp6P04IW+gbtK2Q9pInVSrltPA=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.0.0.tgz"
   "version" "13.0.0"
@@ -5614,7 +5655,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
+"react@*", "react@^16.8 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17 || ^18", "react@^17.0.2 || ^18", "react@^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -6244,15 +6285,15 @@
     "define-property" "^0.2.5"
     "object-copy" "^0.1.0"
 
+"statuses@^2.0.1", "statuses@2.0.1":
+  "integrity" "sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ=="
+  "resolved" "https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz"
+  "version" "2.0.1"
+
 "statuses@>= 1.5.0 < 2":
   "integrity" "sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA=="
   "resolved" "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   "version" "1.5.0"
-
-"statuses@2.0.1":
-  "integrity" "sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ=="
-  "resolved" "https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz"
-  "version" "2.0.1"
 
 "stream-parser@~0.3.1":
   "integrity" "sha512-bJ/HgKq41nlKvlhccD5kaCr/P+Hu0wPNKPJOH7en+YrJu/9EgqUF+88w5Jb6KNcjOFMhfX4B2asfeAtIGuHObQ=="

@@ -1,4 +1,7 @@
+import { CreateClientConfig } from '@prismicio/next/dist/types';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { createClient } from '../../services/prismicio';
 import styles from './styles.module.scss';
 
 export default function Posts() {
@@ -24,3 +27,17 @@ export default function Posts() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({
+  previewData,
+}: CreateClientConfig) => {
+  const prismic = createClient(previewData);
+
+  const response = await prismic.getSingle('homepage');
+
+  return {
+    props: {
+      response,
+    },
+  };
+};
