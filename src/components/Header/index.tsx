@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { ActiveLink } from '../ActiveLink';
 import { SingInButton } from '../SignInButton';
 import styles from './styles.module.scss';
 export const Header: React.FC = () => {
@@ -7,10 +9,12 @@ export const Header: React.FC = () => {
       <div className={styles.headerContent}>
         <img src="/images/logo.svg" alt="logo ig.news" />
         <nav>
-          <Link href="/" className={styles.active}>
+          <ActiveLink href="/" activeClassName={styles.active}>
             Home
-          </Link>
-          <Link href="/posts">Posts</Link>
+          </ActiveLink>
+          <ActiveLink href="/posts" activeClassName={styles.active}>
+            Posts
+          </ActiveLink>
         </nav>
 
         <SingInButton />
