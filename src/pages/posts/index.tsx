@@ -2,15 +2,18 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { createClient } from '../../services/prismicio';
 import styles from './styles.module.scss';
-import { PrismicRichText, PrismicText } from '@prismicio/react';
-type ContentProps = {
-  title: [];
-  content: [];
+import { PrismicText } from '@prismicio/react';
+import { RTNode } from '@prismicio/types';
+type Post = {
+  slug: string;
+  title: [] | [RTNode, ...RTNode[]] | null | undefined;
+  updatedAt: string;
+  excerpt: [] | [RTNode, ...RTNode[]] | null | undefined;
 };
-type DataProps = {
-  data: ContentProps;
+type PostProps = {
+  data: Post[];
 };
-export default function Posts({ data }: any) {
+export default function Posts({ data }: PostProps) {
   console.log(data);
   return (
     <>
@@ -19,29 +22,17 @@ export default function Posts({ data }: any) {
       </Head>
       <main className={styles.container}>
         <div className={styles.posts}>
-          {data.map((item: any) => {
-            return (
-              <a href="#" key={item.slug}>
-                <time>{item.updatedAt}</time>
-                <strong>
-                  <PrismicText field={item.title} />
-                </strong>
-                <p>
-                  <PrismicText field={item.excerpt} />
-                </p>
-              </a>
-            );
-          })}
-          <a href="#">
-            <time>12 março de 2020</time>
-            <strong>Teste teste teste</strong>
-            <p>Um breve paragrafo</p>
-          </a>
-          <a href="#">
-            <time>12 março de 2020</time>
-            <strong>Teste teste teste</strong>
-            <p>Um breve paragrafo</p>
-          </a>
+          {data.map(item => (
+            <a href="#" key={item.slug}>
+              <time>{item.updatedAt}</time>
+              <strong>
+                <PrismicText field={item.title} />
+              </strong>
+              <p>
+                <PrismicText field={item.excerpt} />
+              </p>
+            </a>
+          ))}
         </div>
       </main>
     </>
