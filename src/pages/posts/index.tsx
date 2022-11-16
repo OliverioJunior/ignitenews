@@ -4,6 +4,7 @@ import { createClient } from '../../services/prismicio';
 import styles from './styles.module.scss';
 import { PrismicText } from '@prismicio/react';
 import { RTNode } from '@prismicio/types';
+import Link from 'next/link';
 type Post = {
   slug: string;
   title: [] | [RTNode, ...RTNode[]] | null | undefined;
@@ -14,7 +15,6 @@ type PostProps = {
   data: Post[];
 };
 export default function Posts({ data }: PostProps) {
-  console.log(data);
   return (
     <>
       <Head>
@@ -23,7 +23,7 @@ export default function Posts({ data }: PostProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {data.map(item => (
-            <a href="#" key={item.slug}>
+            <Link href={`/posts/${item.slug}`} key={item.slug}>
               <time>{item.updatedAt}</time>
               <strong>
                 <PrismicText field={item.title} />
@@ -31,7 +31,7 @@ export default function Posts({ data }: PostProps) {
               <p>
                 <PrismicText field={item.excerpt} />
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </main>
