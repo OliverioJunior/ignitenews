@@ -1,5 +1,6 @@
 import { query as q } from 'faunadb';
-import NextAuth from 'next-auth';
+import NextAuth, { Session, User } from 'next-auth';
+import { AdapterUser } from 'next-auth/adapters';
 import GithubProvider from 'next-auth/providers/github';
 interface UserProps {
   user: {
@@ -21,6 +22,42 @@ export const authOptions = {
     // ...add more providers here
   ],
   callbacks: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async session(session: any) {
+      // console.log(session.session.user.email);
+      try {
+        const userActiveSubscription = await fauna.query<string>(
+          q.Get(
+            q.Intersection([
+              q.Match(
+                q.Index('subscription_by_user_ref'),
+                q.Select(
+                  'ref',
+                  q.Get(
+                    q.Match(
+                      q.Index('user_by_email'),
+                      q.Casefold(session.session.user.email),
+                    ),
+                  ),
+                ),
+              ),
+              q.Match(q.Index('subscription_by_status'), 'active'),
+            ]),
+          ),
+        );
+        return {
+          ...session,
+          activeSubscription: userActiveSubscription,
+        };
+      } catch (err) {
+        console.log(err);
+        return {
+          ...session,
+          activeSubscription: null,
+        };
+      }
+    },
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async signIn(response: any) {
       const { user }: UserProps = response;
