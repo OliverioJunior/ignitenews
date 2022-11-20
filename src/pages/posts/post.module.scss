@@ -40,13 +40,18 @@
 
     &.previewContent {
       --max-lines: 3;
+      --line-height: 1.4;
+
       background: linear-gradient(var(--gray-50), transparent);
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: -webkit-box;
+
+      max-height: calc(var(--max-lines)* 1em * var(--line-height));
+      line-height: var(--line-height);
+     /*  display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: var(--max-lines);
+      -webkit-line-clamp: var(--max-lines); */
     }
   }
 }
